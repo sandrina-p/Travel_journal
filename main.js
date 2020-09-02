@@ -1,9 +1,9 @@
-var moment = require('moment'); // require
+var moment = require('moment'); 
 
 var myDate = new Date();
-console.log(myDate);
-var dateFormating = moment (myDate).format('LL');
+var dateFormating = moment(myDate).format('LL');
 
+console.log(dateFormating);
 
 let destinations = [
     
@@ -242,3 +242,5 @@ let destinations = [
         visited: false
     },
   ]
+
+
