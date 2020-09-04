@@ -254,10 +254,6 @@ let destinations = [
     let url= destinations.map(obj => obj.photo.valueOf());
     return url;
   }
-  // console.log(getURL(destinations));
-  // console.log(getURL(visited));
-  // console.log(getURL(bucketList));
-
 
 
   //create an img element for each visited city
@@ -270,14 +266,14 @@ let destinations = [
 
       for(let i=0; i<destinations.length; i++) {
         img.src = url[i];
-
-        if(destination.visited === true) {
-          img.classList.add('visited');
-        }
-        else {
-          img.classList.add('bucketList');
-        }
       };
+
+      if(destination.visited === true) {
+        img.classList.add('visited');
+      }
+      else {
+        img.classList.add('bucketList');
+      }
 
       document.body.appendChild(img);
       // return img;
@@ -285,7 +281,6 @@ let destinations = [
   return createImg(getURL(destinations));
 });
 
-createImg();
 
 //connect lists with buttons
 
