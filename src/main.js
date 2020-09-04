@@ -244,23 +244,25 @@ let destinations = [
   ]
 
 
-  //variables
+  //visited and bucktelist lists
   const visited = destinations.filter(item => item.visited === true);
-  const bucketList = destinations.filter(item => item.visited === false);
+  const bucketlist = destinations.filter(item => item.visited === false);
  
 
-  //get url list
+  //get list of urls
   const getURL = (destinations) => {
     let url= destinations.map(obj => obj.photo.valueOf());
     return url;
   }
 
-  //create a <picture><img></picture> for each city
+  //create elements for each city
   const elements= destinations.forEach(destination => {
 
+    //picture element
     const createImg = (url) => {
       let div = document.createElement('picture');
       div.style.objectFit ='cover';
+    //img element
       let img = document.createElement('img');
       document.body.appendChild(div);
       div.appendChild(img);
@@ -275,7 +277,7 @@ let destinations = [
         img.classList.add('visited');
       }
       else {
-        img.classList.add('bucketList');
+        img.classList.add('bucketlist');
       }
 
   };
@@ -286,8 +288,16 @@ let destinations = [
 
 
 //connect lists with buttons
+const buttonVisited = document.createElement('button');
+buttonVisited.innerText='Visited';
+buttonVisited.type='button';
+document.body.appendChild(buttonVisited);
 
 
+const buttonBucketlist = document.createElement('button');
+buttonBucketlist.innerText='Bucketlist';
+buttonBucketlist.type='button';
+document.body.appendChild(buttonBucketlist);
 
 
 
