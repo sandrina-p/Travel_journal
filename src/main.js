@@ -282,7 +282,7 @@ let destinations = [
       document.body.appendChild(img);
       // return img;
   };
-  return createImg(getURL(bucketList));
+  return createImg(getURL(destinations));
 });
 
 createImg();
