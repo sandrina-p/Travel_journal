@@ -254,30 +254,38 @@ let destinations = [
     let url= destinations.map(obj => obj.photo.valueOf());
     return url;
   }
-  console.log(getURL(destinations));
-  console.log(getURL(visited));
-  console.log(getURL(bucketList));
+  // console.log(getURL(destinations));
+  // console.log(getURL(visited));
+  // console.log(getURL(bucketList));
 
 
 
   //create an img element for each visited city
   //append the right url to each element 
   const elements= destinations.forEach(destination => {
+
+
     const createImg = (url) => {
       let img = document.createElement('img');
-      img.classList.add('visited');
 
       for(let i=0; i<destinations.length; i++) {
         img.src = url[i];
+
+        if(destination.visited === true) {
+          img.classList.add('visited');
+        }
+        else {
+          img.classList.add('bucketList');
+        }
       };
 
       document.body.appendChild(img);
-      return img;
+      // return img;
   };
-
-  return createImg(getURL(visited));
+  return createImg(getURL(bucketList));
 });
 
+createImg();
 
 //connect lists with buttons
 
