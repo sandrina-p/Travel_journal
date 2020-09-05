@@ -260,12 +260,17 @@ let destinations = [
 
     //picture element
     const createImg = (url) => {
-      let div = document.createElement('picture');
-      div.style.objectFit ='cover';
+      let figure = document.createElement('figure');
     //img element
       let img = document.createElement('img');
-      document.body.appendChild(div);
-      div.appendChild(img);
+      img.style.objectFit ='cover';
+      document.body.appendChild(figure);
+      figure.appendChild(img);
+    //img caption
+      let figcaption= document.createElement('figcaption');
+      figure.appendChild(figcaption);
+      figcaption.innerText= `${destinations.city}, ${destinations.country}`
+
 
       //get urls
       for(let i=0; i<destinations.length; i++) {
@@ -282,22 +287,37 @@ let destinations = [
 
   };
 
+
+
   return createImg(getURL(destinations));
 
 });
 
+  //create buttons
+  const buttonVisited = document.createElement('button');
+  buttonVisited.innerText='Visited';
+  buttonVisited.type='button';
+  document.body.appendChild(buttonVisited);
+  
+  
+  const buttonBucketlist = document.createElement('button');
+  buttonBucketlist.innerText='Bucketlist';
+  buttonBucketlist.type='button';
+  document.body.appendChild(buttonBucketlist);
+  
 
 //connect lists with buttons
-const buttonVisited = document.createElement('button');
-buttonVisited.innerText='Visited';
-buttonVisited.type='button';
-document.body.appendChild(buttonVisited);
+
+buttonVisited.addEventListener('click', () => {
+  document.querySelectorAll('.visited');
+
+});
+
+buttonBucketlist.addEventListener('click', () => {
+
+});
 
 
-const buttonBucketlist = document.createElement('button');
-buttonBucketlist.innerText='Bucketlist';
-buttonBucketlist.type='button';
-document.body.appendChild(buttonBucketlist);
 
 
 
