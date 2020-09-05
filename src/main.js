@@ -245,8 +245,8 @@ let destinations = [
 
 
   //visited and bucktelist lists
-  const visited = destinations.filter(item => item.visited === true);
-  const bucketlist = destinations.filter(item => item.visited === false);
+  // const visited = destinations.filter(item => item.visited === true);
+  // const bucketlist = destinations.filter(item => item.visited === false);
  
 
   //get list of urls
@@ -258,9 +258,10 @@ let destinations = [
   //create elements for each city
   const elements= destinations.forEach(destination => {
 
-    //picture element
+    //img wrapper
     const createImg = (url) => {
       let figure = document.createElement('figure');
+      figure.classList.add('img-container');
     //img element
       let img = document.createElement('img');
       img.style.objectFit ='cover';
@@ -268,6 +269,7 @@ let destinations = [
       figure.appendChild(img);
     //img caption
       let figcaption= document.createElement('figcaption');
+      figcaption.classList.add('caption');
       figure.appendChild(figcaption);
       figcaption.innerText= `${destinations.city}, ${destinations.country}`
 
@@ -287,8 +289,6 @@ let destinations = [
 
   };
 
-
-
   return createImg(getURL(destinations));
 
 });
@@ -306,10 +306,21 @@ let destinations = [
   document.body.appendChild(buttonBucketlist);
   
 
-//connect lists with buttons
-
+//connect lists and buttons
 buttonVisited.addEventListener('click', () => {
-  document.querySelectorAll('.visited');
+  const visited = document.querySelectorAll('.visited');
+  // const captions = document.querySelectorAll('.visited .caption');
+  const captions = visited.forEach(item => {
+    return item.nextElementSibling;
+  })
+
+  //add display:none to each img and figcaption
+  visited.forEach(item => {
+    item.style.display='none';
+  })
+  captions.forEach(item => {
+    item.style.display='none';
+  });
 
 });
 
