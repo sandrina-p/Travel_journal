@@ -5,170 +5,170 @@ var dateFormating = moment(myDate).format('LL');
 
 console.log(dateFormating);
 
-let destinations = [
+let destinationsList = [
     
     //Visited
 
     {
       city: 'Rome',
       country: 'Italy',
-      photo: 'img/rome.jpg',
+      photo: require("./img/rome.jpg"),     
       visited: true
     },
     {
       city: 'Milan',
       country: 'Italy',
-      photo: 'img/milan.jpg',
+      photo: require('./img/milan.jpg'),
       visited: true
     },
     {
       city: 'Venice',
       country: 'Italy',
-      photo: 'img/venice.jpg',
+      photo: require('./img/venice.jpg'),
       visited: true
     },
     {
       city: 'Padua',
       country: 'Italy',
-      photo: 'img/padua.jpg',
+      photo: require('./img/padua.jpg'),
       visited: true
     },
     {
       city: 'Verona',
       country: 'Italy',
-      photo: 'img/verona.jpg',
+      photo: require('./img/verona.jpg'),
       visited: true
     },
     {
       city: 'Florence',
       country: 'Italy',
-      photo: 'img/florence.jpg',
+      photo: require('./img/florence.jpg'),
       visited: true
     },
     {
       city: 'Bergamo',
       country: 'Italy',
-      photo: 'img/bergamo.jpg',
+      photo: require('./img/bergamo.jpg'),
       visited: true
     },
     {
       city: 'Barcelona',
       country: 'Spain',
-      photo: 'img/barcelona.jpg',
+      photo: require('./img/barcelona.jpg'),
       visited: true
     },
     {
       city: 'Lloret de mar',
       country: 'Spain',
-      photo: 'img/lloretdemar.jpg',
+      photo: require('./img/lloretdemar.jpg'),
       visited: true
       },
     {
       city: 'Nice',
       country: 'France',
-      photo: 'img/nice.jpg',
+      photo: require('./img/nice.jpg'),
       visited: true
     },
     {
       city: 'Cannes',
       country: 'France',
-      photo: 'img/cannes.jpg',
+      photo: require('./img/cannes.jpg'),
       visited: true
     },
     {
       city: 'Stockholm',
       country: 'Sweden',
-      photo: 'img/stockholm.jpg',
+      photo: require('./img/stockholm.jpg'),
       visited: true
     },
     {
       city: 'Malmo',
       country: 'Sweeden',
-      photo: 'img/malmo.jpg',
+      photo: require('./img/malmo.jpg'),
       visited: true
     },
     {
       city: 'Copenhagen',
       country: 'Denmark',
-      photo: 'img/copenhagen.jpg',
+      photo: require('./img/copenhagen.jpg'),
       visited: true
     },
     {
       city: 'Vienna',
       country: 'Austria',
-      photo: 'img/vienna.jpg',
+      photo: require('./img/vienna.jpg'),
       visited: true
     },
     {
       city: 'Monaco',
       country: 'Monaco',
-      photo: 'img/monaco.jpg',
+      photo: require('./img/monaco.jpg'),
       visited: true
     },
     {
       city: 'Budapest',
       country: 'Hungary',
-      photo: 'img/budapest.jpg',
+      photo: require('./img/budapest.jpg'),
       visited: true
     },
     {
       city: 'Prague',
       country: 'Czech republic',
-      photo: 'img/prague.jpg',
+      photo: require('./img/prague.jpg'),
       visited: true
     },
     {
       city: 'Belgrade',
       country: 'Serbia',
-      photo: 'img/belgrade.jpg',
+      photo: require('./img/belgrade.jpg'),
       visited: true
     },
     {
       city: 'Zlatibor',
       country: 'Serbia',
-      photo: 'img/zlatibor.jpg',
+      photo: require('./img/zlatibor.jpg'),
       visited: true
     },
     {
       city: 'Kopaonik',
       country: 'Serbia',
-      photo: 'img/kopaonik.jpg',
+      photo: require('./img/kopaonik.jpg'),
       visited: true
     },
     {
       city: 'Bratislava',
       country: 'Slovakia',
-      photo: 'img/bratislava.jpg',
+      photo: require('./img/bratislava.jpg'),
       visited: true
     },
     {
       city: 'Sofia',
       country: 'Bulgaria',
-      photo: 'img/sofia.jpg',
+      photo: require('./img/sofia.jpg'),
       visited: true
     },
     {         
       city: 'Bansko',
       country: 'Slovakia',
-      photo: 'img/bansko1.jpg',
+      photo: require('./img/bansko1.jpg'),
       visited: true
     },
     {         
       city: 'Varna',
       country: 'Slovakia',
-      photo: 'img/varna.jpg',
+      photo: require('./img/varna.jpg'),
       visited: true
     },
     {
       city: 'Thessaloniki',
       country: 'Greece',
-      photo: 'img/thessaloniki.jpg',
+      photo: require('./img/thessaloniki.jpg'),
       visited: true
     },
     {
       city: 'Istanbul',
       country: 'Turkey',
-      photo: 'img/istanbul.jpg',
+      photo: require('./img/istanbul.jpg'),
       visited: true
     },
 
@@ -177,68 +177,68 @@ let destinations = [
     {
         city: 'Paris',
         country: 'France',
-        photo: 'img/paris.jpg',
+        photo: require('./img/paris.jpg'),
         visited: false
     },
     {
         city: 'Santorini',
         country: 'Greece',
-        photo: 'img/santorini.jpg',
+        photo: require('./img/santorini.jpg'),
         visited: false
     },
     {
         city: 'New York',
         country: 'U.S.',
-        photo: 'img/newyork.jpg',
+        photo: require('./img/newyork.jpg'),
         visited: false
     },
     {
         city: 'Marrakech',
         country: 'Morocco',
-        photo: 'img/marrakech.jpg',
+        photo: require('./img/marrakech.jpg'),
         visited: false
     },
     {
         city: 'Amsterdam',
         country: 'Netherlands',
-        photo: 'img/Amsterdam.png',
+        photo: require('./img/Amsterdam.png'),
         visited: false
     },
     {
         city: 'Berlin',
         country: 'Germany',
-        photo: 'img/berlin.jpg',
+        photo: require('./img/berlin.jpg'),
         visited: false
     },
     {
         city: 'Lisbon',
         country: 'Porugal',
-        photo: 'img/lisbon.jpg',
+        photo: require('./img/lisbon.jpg'),
         visited: false
     },
     {
         city: 'Tokyo',
         country: 'Japan',
-        photo: 'img/tokyo.jpg',
+        photo: require('./img/tokyo.jpg'),
         visited: false
     },
     {
         city: 'Sienna',
         country: 'Italy',
-        photo: 'img/nice.jpg',
+        photo: require('./img/sienna.jpg'),
         visited: false
 
     },
     {
         city: 'Dublin',
         country: 'Ireland',
-        photo: 'img/dublin.jpg',
+        photo: require('./img/dublin.jpg'),
         visited: false
     },
     {
         city: 'Saint petersburg',
         country: 'Russia',
-        photo: 'img/saintpetersburg.jpg',
+        photo: require('./img/saintpetersburg.jpg'),
         visited: false
     },
   ]
@@ -250,13 +250,14 @@ let destinations = [
  
 
   //get list of urls
-  const getURL = (destinations) => {
-    let url= destinations.map(obj => obj.photo.valueOf());
+  const getURL = (destinationsList) => {
+    let url= destinationsList.map(obj => obj.photo.valueOf());
+    console.log(url);
     return url;
   }
 
   //create elements for each city
-  const elements= destinations.forEach(destination => {
+  const elements= destinationsList.forEach(destination => {
 
     //img wrapper
     const createImg = (url) => {
@@ -271,11 +272,12 @@ let destinations = [
       let figcaption= document.createElement('figcaption');
       figcaption.classList.add('caption');
       figure.appendChild(figcaption);
-      figcaption.innerText= `${destinations.city}, ${destinations.country}`
+
+      figcaption.innerText= `${destination.city}, ${destination.country}`
 
 
       //get urls
-      for(let i=0; i<destinations.length; i++) {
+      for(let i=0; i<destinationsList.length; i++) {
         img.src = url[i];
       };
       
@@ -289,7 +291,7 @@ let destinations = [
 
   };
 
-  return createImg(getURL(destinations));
+  return createImg(getURL(destinationsList));
 
 });
 
@@ -309,12 +311,12 @@ let destinations = [
 //connect lists and buttons
 buttonVisited.addEventListener('click', () => {
   const visited = document.querySelectorAll('.visited');
-  // const captions = document.querySelectorAll('.visited .caption');
+  // const captions = document.querySelectorAll('.visited .caption');   
   const captions = visited.forEach(item => {
     return item.nextElementSibling;
   })
 
-  //add display:none to each img and figcaption
+  //add display:none to each img and figcaption 
   visited.forEach(item => {
     item.style.display='none';
   })
