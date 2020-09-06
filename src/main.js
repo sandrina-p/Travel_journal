@@ -274,15 +274,10 @@ let destinationsList = [
       figcaption.insertAdjacentHTML("beforeend", `<h4 class='caption__city'>${destination.city}</h4>` );
       figcaption.insertAdjacentHTML("beforeend", `<h5 class='caption__country'>${destination.country}</h5>` )
 
-
-
-      // figcaption.innerText= `${destination.city}, ${destination.country}`
-
-
-      //get urls
+    //urls
       img.src = destination.photo
       
-      //add classes 
+    //add classes 
       if(destination.visited === true) {
         img.classList.add('visited');
       }
@@ -306,7 +301,9 @@ let destinationsList = [
   const bucketlistButton = document.querySelector('.bucketlist-button'); 
   const allButton = document.querySelector('.all'); 
 
-
+  document.addEventListener("DOMContentLoaded", function(event) { 
+    document.querySelector(".visited-button").click();
+ });
 
 visitedButton.addEventListener('click', () => {
   //get two lists of images with class .visited and .bucketlist

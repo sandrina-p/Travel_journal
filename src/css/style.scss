@@ -85,17 +85,17 @@ button {
 }
 
 .gallery .img-container>.visited,
-.gallery .img-container>.visited ~.caption,
+.gallery .img-container>.visited ~.caption, 
 .gallery .img-container>.bucketlist,
 .gallery .img-container>.bucketlist ~.caption {
     display: none;
 }
 
 
-.img-container>.visited.active,
-.img-container>.visited ~.caption.active,
-.img-container>.bucketlist.active,
-.img-container>.bucketlist ~.caption.active  {
+.gallery .img-container>.visited.active,
+.gallery .img-container>.visited ~.caption.active,
+.gallery .img-container>.bucketlist.active,
+.gallery .img-container>.bucketlist ~.caption.active  {
     display: block;
 }
 
