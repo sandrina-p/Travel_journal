@@ -18,51 +18,86 @@ $grey: #f4f4f4;
 
 html {
     background: $grey;
+    font-family: "TwCenW01-Medium";
 }
 
 .container {
-    width: 80vw;
+    width: 80%;
     margin: auto;
 }
 
-img {
-    width: 200px;
-    height: 150px;
+button {
+    outline: none;
+    border: none;
+    cursor: pointer;
+    &:hover {
+        border-bottom: 1px solid black;
+    }
 }
 
 .gallery {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.img-container {
+    img {
+        width: 300px;
+        height: 250px;
+    }
 }
 
 .buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0 20px 0;
+    height: 100px;
+    .buttons__view,
+    .button {
+        display: inline-block;
+        margin: 20px;
+        font-family: "TwCenW01-Medium";
+        font-size: 1em;
+        font-weight: 100;
+        text-transform: uppercase;
+    }
     
-
 }
 
-.caption {
-    font-family: "TwCenW01-Medium";
+.caption  {
+    line-height: 1.5;
+    margin: 10px 0;
+    .caption__city {
+        font-weight: 300;
+        font-size: 1.1em;
+        letter-spacing: 1px;
+    }
+    .caption__country {
+        font-weight: 300;
+        font-size: .7em;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+
+    }
 }
 
 .gallery .img-container>.visited,
-.gallery .img-container>.visited ~.caption {
-    display: none;
-}
-
+.gallery .img-container>.visited ~.caption,
 .gallery .img-container>.bucketlist,
 .gallery .img-container>.bucketlist ~.caption {
     display: none;
 }
 
+
 .img-container>.visited.active,
-.img-container>.visited ~.caption.active {
+.img-container>.visited ~.caption.active,
+.img-container>.bucketlist.active,
+.img-container>.bucketlist ~.caption.active  {
     display: block;
 }
 
-.img-container>.bucketlist.active,
-.img-container>.bucketlist ~.caption.active {
-    display: block;
-}
 
 
 

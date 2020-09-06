@@ -271,8 +271,12 @@ let destinationsList = [
       let figcaption= document.createElement('figcaption');
       figcaption.classList.add('caption');
       figure.appendChild(figcaption);
+      figcaption.insertAdjacentHTML("beforeend", `<h4 class='caption__city'>${destination.city}</h4>` );
+      figcaption.insertAdjacentHTML("beforeend", `<h5 class='caption__country'>${destination.country}</h5>` )
 
-      figcaption.innerText= `${destination.city}, ${destination.country}`
+
+
+      // figcaption.innerText= `${destination.city}, ${destination.country}`
 
 
       //get urls
