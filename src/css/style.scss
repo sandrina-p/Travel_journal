@@ -5,16 +5,22 @@
 }
 
 @font-face {font-family: "TwCenW01-Medium"; src: url("//db.onlinewebfonts.com/t/c862d8098ce50a7dc042ebbb9b94bbc8.eot"); 
-    src: url("//db.onlinewebfonts.com/t/c862d8098ce50a7dc042ebbb9b94bbc8.eot?#iefix") 
-    format("embedded-opentype"), url("//db.onlinewebfonts.com/t/c862d8098ce50a7dc042ebbb9b94bbc8.woff2") 
-    format("woff2"), url("//db.onlinewebfonts.com/t/c862d8098ce50a7dc042ebbb9b94bbc8.woff") 
-    format("woff"), url("//db.onlinewebfonts.com/t/c862d8098ce50a7dc042ebbb9b94bbc8.ttf") 
-    format("truetype"), url("//db.onlinewebfonts.com/t/c862d8098ce50a7dc042ebbb9b94bbc8.svg#TwCenW01-Medium") format("svg"); } 
+src: url("//db.onlinewebfonts.com/t/c862d8098ce50a7dc042ebbb9b94bbc8.eot?#iefix") 
+format("embedded-opentype"), url("//db.onlinewebfonts.com/t/c862d8098ce50a7dc042ebbb9b94bbc8.woff2") 
+format("woff2"), url("//db.onlinewebfonts.com/t/c862d8098ce50a7dc042ebbb9b94bbc8.woff") 
+format("woff"), url("//db.onlinewebfonts.com/t/c862d8098ce50a7dc042ebbb9b94bbc8.ttf") 
+format("truetype"), url("//db.onlinewebfonts.com/t/c862d8098ce50a7dc042ebbb9b94bbc8.svg#TwCenW01-Medium") format("svg"); } 
 
+
+.title {
+    font-family: 'GermanoRegular';
+    font-weight: normal;
+    font-style: normal;
+}
 
 
 //Variables
-$grey: #f4f4f4;
+$grey: #f1f1f1;
 
 html {
     background: $grey;
@@ -48,6 +54,20 @@ button {
         height: 250px;
     }
 }
+
+.navbar {
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: 800;
+    font-size: 1.7em;
+    letter-spacing: 2px;
+    line-height: 1.2;
+}
+
+
 
 .buttons {
     display: flex;
