@@ -155,7 +155,7 @@ let destinationsList = [
     },
     {         
       city: 'Varna',
-      country: 'Slovakia',
+      country: 'Bulgaria',
       photo: require('./img/varna.jpg'),
       visited: true
     },

@@ -4,9 +4,44 @@
     box-sizing: border-box;
 }
 
+@font-face {font-family: "TwCenW01-Medium"; src: url("//db.onlinewebfonts.com/t/c862d8098ce50a7dc042ebbb9b94bbc8.eot"); 
+    src: url("//db.onlinewebfonts.com/t/c862d8098ce50a7dc042ebbb9b94bbc8.eot?#iefix") 
+    format("embedded-opentype"), url("//db.onlinewebfonts.com/t/c862d8098ce50a7dc042ebbb9b94bbc8.woff2") 
+    format("woff2"), url("//db.onlinewebfonts.com/t/c862d8098ce50a7dc042ebbb9b94bbc8.woff") 
+    format("woff"), url("//db.onlinewebfonts.com/t/c862d8098ce50a7dc042ebbb9b94bbc8.ttf") 
+    format("truetype"), url("//db.onlinewebfonts.com/t/c862d8098ce50a7dc042ebbb9b94bbc8.svg#TwCenW01-Medium") format("svg"); } 
+
+
+
+//Variables
+$grey: #f4f4f4;
+
+html {
+    background: $grey;
+}
+
+.container {
+    width: 80vw;
+    margin: auto;
+}
 
 img {
     width: 200px;
+    height: 150px;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.buttons {
+    
+
+}
+
+.caption {
+    font-family: "TwCenW01-Medium";
 }
 
 .gallery .img-container>.visited,
