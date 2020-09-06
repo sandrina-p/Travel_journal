@@ -8,3 +8,27 @@
 img {
     width: 200px;
 }
+
+.gallery .img-container>.visited,
+.gallery .img-container>.visited ~.caption {
+    display: none;
+}
+
+.gallery .img-container>.bucketlist,
+.gallery .img-container>.bucketlist ~.caption {
+    display: none;
+}
+
+.img-container>.visited.active,
+.img-container>.visited ~.caption.active {
+    display: block;
+}
+
+.img-container>.bucketlist.active,
+.img-container>.bucketlist ~.caption.active {
+    display: block;
+}
+
+
+
+
