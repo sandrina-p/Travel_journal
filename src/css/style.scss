@@ -58,6 +58,7 @@ button {
 .navbar {
     height: 20vh;
     width: 100vw;
+    background: $grey;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -73,7 +74,6 @@ button {
 
 .shrink {
     position: fixed;
-    background: white;
     font-size: 1em;    
     height: 10vh;
     // transition: all .8s ease;
