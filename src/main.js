@@ -384,6 +384,24 @@ allButton.addEventListener('click', () => {
 });
 
 
+const buttonIsActive = () => {
+  const buttons= document.querySelectorAll('.button');
+  buttons.forEach(button => {
+      button.addEventListener('click', clicked => {
+          clicked.currentTarget.classList.toggle('active-button');
+      })
+  });
+}
+buttonIsActive();
+
+// const buttonRemoveActive = () => {
+//   if(buttonIsActive()) {
+//                 clicked.currentTarget.classList.remove('active-button');
+//     };
+// }
+// buttonRemoveActive();
+
+
 //shrink header on scroll
 
 const navbar = document.querySelector('.navbar');
