@@ -384,7 +384,7 @@ allButton.addEventListener('click', () => {
 });
 
 
-//shrink navbar on scroll
+//shrink header on scroll
 
 const navbar = document.querySelector('.navbar');
 
@@ -401,5 +401,16 @@ document.addEventListener('scroll', () => {
 });
 
 
+//Change header behaviour based on scrolling position
+let scrollPos = 0;
 
+window.addEventListener('scroll', function(){
+  if ((document.body.getBoundingClientRect()).top === scrollPos) {
+    document.querySelector('.navbar').classList.remove('shrink');
+    document.querySelector('.buttons').classList.remove('fade');
+  }
+	else if ((document.body.getBoundingClientRect()).top > scrollPos) {
+    document.body.getBoundingClientRect().top;
+  }
+});
 
