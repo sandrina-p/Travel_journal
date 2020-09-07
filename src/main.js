@@ -409,8 +409,5 @@ window.addEventListener('scroll', function(){
     document.querySelector('.navbar').classList.remove('shrink');
     document.querySelector('.buttons').classList.remove('fade');
   }
-	else if ((document.body.getBoundingClientRect()).top > scrollPos) {
-    document.body.getBoundingClientRect().top;
-  }
 });
 
