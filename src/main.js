@@ -292,8 +292,6 @@ let destinationsList = [
 
 
 
-
-
   //connect lists and buttons
 
   //get buttons
@@ -386,7 +384,21 @@ allButton.addEventListener('click', () => {
 });
 
 
+//shrink navbar on scroll
 
+const navbar = document.querySelector('.navbar');
+
+document.addEventListener('scroll', () => {
+  navbar.classList.add('shrink');
+});
+
+//fade buttons on scroll
+
+const buttonsContainer = document.querySelector('.buttons');
+
+document.addEventListener('scroll', () => {
+  buttonsContainer.classList.add('fade');
+});
 
 
 
