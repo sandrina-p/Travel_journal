@@ -52,6 +52,7 @@ button {
     line-height: 1.2;
     border-bottom: 1px solid black;
     transition: all .4s ease;
+    z-index: 1;
 }
 
 .title {
@@ -91,7 +92,7 @@ button {
 .fade {
     opacity: 0;
 }
-
+//Clicked button
 .active-button {
     border-bottom: 1px solid black;
 }
@@ -117,7 +118,7 @@ img {
     width: 100%;
     height: 250px;
     opacity: 1;
-    transition: opacity 350ms ease;
+    transition: opacity .3s ease;
         &:hover {
             opacity: .8;
         }
@@ -142,22 +143,28 @@ img {
     }
 }
 
-.gallery .img-container>.visited,
-.gallery .img-container>.visited ~.caption, 
-.gallery .img-container>.bucketlist,
-.gallery .img-container>.bucketlist ~.caption {
-    display: none;
-}
-
-
-.gallery .img-container>.visited.active,
-.gallery .img-container>.visited ~.caption.active,
-.gallery .img-container>.bucketlist.active,
-.gallery .img-container>.bucketlist ~.caption.active  {
+.gallery .caption.visited,
+.gallery .caption.bucketlist {
     display: block;
 }
 
+.gallery.visited img.visited,
+.gallery.visited  .caption.visited {
+    display: block;
+}
 
+.gallery.visited img.bucketlist,
+.gallery.visited .caption.bucketlist{
+    display: none;
+}
 
+.gallery.bucketlist img.bucketlist {
+    display: block;
+}
+
+.gallery.bucketlist img.visited,
+.gallery.bucketlist .caption.visited {
+    display: none;
+}
 
 

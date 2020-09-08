@@ -243,10 +243,6 @@ let destinationsList = [
     },
   ]
 
-
-  //visited and bucktelist lists
-  // const visited = destinations.filter(item => item.visited === true);
-  // const bucketlist = destinations.filter(item => item.visited === false);
  
 
   //get list of urls
@@ -256,7 +252,7 @@ let destinationsList = [
   }
 
   //create elements for each city
-  const elements= destinationsList.forEach(destination => {
+  destinationsList.forEach(destination => {
 
     //img wrapper
     const createImg = (url) => {
@@ -280,9 +276,13 @@ let destinationsList = [
     //add classes 
       if(destination.visited === true) {
         img.classList.add('visited');
+        figcaption.classList.add('visited');
+
       }
       else {
         img.classList.add('bucketlist');
+        figcaption.classList.add('bucketlist');
+
       }
   };
 
@@ -298,108 +298,38 @@ let destinationsList = [
   const visitedButton = document.querySelector('.visited-button'); 
   const bucketlistButton = document.querySelector('.bucketlist-button'); 
   const allButton = document.querySelector('.all'); 
+  //get all .gallery items
+  const galleryList = document.querySelector('.gallery');
 
+  //set .visited as default active button
   document.addEventListener("DOMContentLoaded", function(event) { 
     document.querySelector(".visited-button").click();
  });
 
-visitedButton.addEventListener('click', () => {
-  //get two lists of images with class .visited and .bucketlist
-  const visitedImgList= document.querySelectorAll('.visited');
-  const bucketlistImgList= document.querySelectorAll('.bucketlist');
-
-  //get two lists of captions that are sibilings to images with class .visited and .bucketlist
-  const visitedCaptionsList= document.querySelectorAll('.visited');
-  const bucketlistCaptionsList= document.querySelectorAll('.bucketlist');
-
-  //add .active to .visited images and remove from .bucketlist
-  visitedImgList.forEach(item =>  {
-    item.classList.add('active')
-  });
-  bucketlistImgList.forEach(item =>  {
-    item.classList.remove('active')
+  visitedButton.addEventListener('click', () => {
+    galleryList.classList.add('visited');
   });
 
-  //add .active to .visited captions and remove from .bucketlist
-  visitedCaptionsList.forEach(item =>  {
-    item.nextElementSibling.classList.add('active');
-  });
-  bucketlistCaptionsList.forEach(item =>  {
-    item.nextElementSibling.classList.remove('active');
-  });
-})
-
-
-bucketlistButton.addEventListener('click', () => {
-  //get two lists of images with class .visited and .bucketlist
-  const visitedImgList= document.querySelectorAll('.visited');
-  const bucketlistImgList= document.querySelectorAll('.bucketlist');
-
-  //get two lists of captions that are sibilings to images with class .visited and .bucketlist
-  const visitedCaptionsList= document.querySelectorAll('.visited');
-  const bucketlistCaptionsList= document.querySelectorAll('.bucketlist');
-
-  //remove .active from .visited images and add to .bucketlist
-  visitedImgList.forEach(item =>  {
-    item.classList.remove('active')
-  });
-  bucketlistImgList.forEach(item =>  {
-    item.classList.add('active')
+  bucketlistButton.addEventListener('click', () => {
+    galleryList.classList.add('bucketlist');
+    galleryList.classList.remove('visited');
   });
 
-  //remove .active from .visited captions and add to .bucketlist
-  visitedCaptionsList.forEach(item =>  {
-    item.nextElementSibling.classList.remove('active');
-  });
-  bucketlistCaptionsList.forEach(item =>  {
-    item.nextElementSibling.classList.add('active');
+  allButton.addEventListener('click', () => {
+    galleryList.classList.remove('bucketlist');
+    galleryList.classList.remove('visited');
   });
 
-});
-
-
-allButton.addEventListener('click', () => {
-  //get two lists of images with class .visited and .bucketlist
-  const visitedImgList= document.querySelectorAll('.visited');
-  const bucketlistImgList= document.querySelectorAll('.bucketlist');
-
-  //get two lists of captions that are sibilings to images with class .visited and .bucketlist
-  const visitedCaptionsList= document.querySelectorAll('.visited');
-  const bucketlistCaptionsList= document.querySelectorAll('.bucketlist');
-
-  //add .active to all 
-  visitedImgList.forEach(item =>  {
-    item.classList.add('active')
-  });
-  bucketlistImgList.forEach(item =>  {
-    item.classList.add('active')
-  });
-  visitedCaptionsList.forEach(item =>  {
-    item.nextElementSibling.classList.add('active');
-  });
-  bucketlistCaptionsList.forEach(item =>  {
-    item.nextElementSibling.classList.add('active');
-  });
-
-});
-
-
-const buttonIsActive = () => {
-  const buttons= document.querySelectorAll('.button');
-  buttons.forEach(button => {
-      button.addEventListener('click', clicked => {
-          clicked.currentTarget.classList.toggle('active-button');
-      })
-  });
-}
-buttonIsActive();
-
-// const buttonRemoveActive = () => {
-//   if(buttonIsActive()) {
-//                 clicked.currentTarget.classList.remove('active-button');
-//     };
-// }
-// buttonRemoveActive();
+  //get clicked button
+  const buttonIsActive = () => {
+    const buttons= document.querySelectorAll('.button');
+    buttons.forEach(button => {
+        button.addEventListener('click', clicked => {
+            clicked.currentTarget.classList.add('active-button');
+        })
+    });
+  }
+  buttonIsActive();
 
 
 //shrink header on scroll
