@@ -308,6 +308,8 @@ let destinationsList = [
 
   visitedButton.addEventListener('click', () => {
     galleryList.classList.add('visited');
+    galleryList.classList.remove('bucketlist');
+
   });
 
   bucketlistButton.addEventListener('click', () => {
@@ -320,16 +322,23 @@ let destinationsList = [
     galleryList.classList.remove('visited');
   });
 
-  //get clicked button
-  const buttonIsActive = () => {
-    const buttons= document.querySelectorAll('.button');
-    buttons.forEach(button => {
-        button.addEventListener('click', clicked => {
-            clicked.currentTarget.classList.add('active-button');
-        })
+
+
+//Set active state on clicked button
+const buttonsParent= document.querySelector('.buttons');
+const buttons= document.querySelectorAll('.button');
+
+buttonsParent.addEventListener('click', event => {
+
+  buttons.forEach(button => {
+
+    if(button.getAttribute('class') === event.target.getAttribute('class'))
+    button.classList.add('active-button');
+    else
+    button.classList.remove('active-button');
     });
-  }
-  buttonIsActive();
+});
+
 
 
 //shrink header on scroll
