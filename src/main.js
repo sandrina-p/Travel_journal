@@ -325,20 +325,45 @@ let destinationsList = [
 
 
 //Set active state on clicked button
-const buttonsParent= document.querySelector('.buttons');
-const buttons= document.querySelectorAll('.button');
 
-buttonsParent.addEventListener('click', event => {
+//solution 1
 
+// const buttonsParent= document.querySelector('.buttons');
+// const buttons= document.querySelectorAll('.button');
+
+// buttonsParent.addEventListener('click', event => {
+
+//   buttons.forEach(button => {
+
+//     if(button.getAttribute('class') === event.target.getAttribute('class'))
+//     button.classList.add('active-button');
+//     else
+//     button.classList.remove('active-button');
+//     });
+// });
+
+
+//solution 2
+
+
+  const buttons = document.querySelectorAll(".button");
+  let activeBtn = null;
+  
   buttons.forEach(button => {
-
-    if(button.getAttribute('class') === event.target.getAttribute('class'))
-    button.classList.add('active-button');
-    else
-    button.classList.remove('active-button');
+    button.addEventListener('click', event => {
+    const current = event.target;
+  
+    if(activeBtn) {
+      activeBtn.classList.remove("active-button");
+    }
+  
+    current.classList.add('active-button');
+  
+    activeBtn=current;
     });
-});
-
+  });
+  
+  
 
 
 //shrink header on scroll
