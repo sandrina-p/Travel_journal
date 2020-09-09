@@ -31,41 +31,36 @@ button {
     outline: none;
     border: none;
     cursor: pointer;
-    &:hover {
-        border-bottom: 1px solid black;
-    }
 }
 
 
 //Header
 .navbar {
-    height: 20vh;
+    height: 12rem;
     width: 100%;
     background: $grey;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-weight: 800;
-    font-size: 1.7em;
+    font-size: 1.7rem;
     letter-spacing: 2px;
     line-height: 1.2;
     border-bottom: 1px solid black;
     transition: all .4s ease;
-    z-index: 1;
-}
-
-.title {
     font-family: 'GermanoRegular';
     font-weight: normal;
     font-style: normal;
+    position: fixed;
+    z-index: 1;
+
 }
+
 
 //shrink navbar on scroll
 .shrink {
-    position: fixed;
-    font-size: 1em;    
-    height: 10vh;
+    font-size: 1rem;    
+    height: 8rem;
 }
 
 .buttons {
@@ -73,7 +68,8 @@ button {
     justify-content: center;
     align-items: flex-end;
     padding-bottom: 30px;
-    height: 150px;
+    height: 5rem;
+    margin-top: 15rem;
 
     .buttons__view,
     .button {
@@ -84,14 +80,13 @@ button {
         font-weight: 100;
         text-transform: uppercase;
         opacity: 1; 
-        transition: all 1s ease;
+    }
+    .button:hover {
+        border-bottom: 1px solid black;
     }
 }
 
-//Buttons hidden on scroll
-.fade {
-    opacity: 0;
-}
+
 //Clicked button
 .active-button {
     border-bottom: 1px solid black;
@@ -123,7 +118,6 @@ img {
         &:hover {
             opacity: .8;
         }
-
 }
 
 //img captions
@@ -144,6 +138,7 @@ img {
     }
 }
 
+//Switching lists on click
 .gallery .caption.visited,
 .gallery .caption.bucketlist {
     display: block;

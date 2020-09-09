@@ -267,8 +267,8 @@ let destinationsList = [
       let figcaption= document.createElement('figcaption');
       figcaption.classList.add('caption');
       figure.appendChild(figcaption);
-      figcaption.insertAdjacentHTML("beforeend", `<h4 class='caption__city'>${destination.city}</h4>` );
-      figcaption.insertAdjacentHTML("beforeend", `<h5 class='caption__country'>${destination.country}</h5>` )
+      figcaption.insertAdjacentHTML("beforeend", `<h2 class='caption__city'>${destination.city}</h2>` );
+      figcaption.insertAdjacentHTML("beforeend", `<h3 class='caption__country'>${destination.country}</h3>` )
 
     //urls
       img.src = destination.photo
@@ -295,15 +295,15 @@ let destinationsList = [
   //connect lists and buttons
 
   //get buttons
-  const visitedButton = document.querySelector('.visited-button'); 
-  const bucketlistButton = document.querySelector('.bucketlist-button'); 
-  const allButton = document.querySelector('.all'); 
+  const visitedButton = document.querySelector('.button__visited'); 
+  const bucketlistButton = document.querySelector('.button__buckelist'); 
+  const allButton = document.querySelector('.button__all'); 
   //get all .gallery items
   const galleryList = document.querySelector('.gallery');
 
   //set .visited as default active button
   document.addEventListener("DOMContentLoaded", function(event) { 
-    document.querySelector(".visited-button").click();
+    document.querySelector(".button__visited").click();
  });
 
   visitedButton.addEventListener('click', () => {
@@ -349,13 +349,6 @@ document.addEventListener('scroll', () => {
   navbar.classList.add('shrink');
 });
 
-//fade buttons on scroll
-
-const buttonsContainer = document.querySelector('.buttons');
-
-document.addEventListener('scroll', () => {
-  buttonsContainer.classList.add('fade');
-});
 
 
 //Change header behaviour based on scrolling position
