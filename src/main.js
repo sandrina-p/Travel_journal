@@ -10,7 +10,7 @@ const getURL = (destinationsList) => {
 //create elements for each city
 destinationsList.forEach((destination) => {
   //img wrapper
-  const createImg = (url) => {
+  const createImg = () => {
     let figure = document.createElement("figure");
     figure.classList.add("img-container");
     //img element
@@ -36,11 +36,9 @@ destinationsList.forEach((destination) => {
 
     //add classes
     if (destination.visited === true) {
-      img.classList.add("visited");
-      figcaption.classList.add("visited");
+      figure.classList.add("visited");
     } else {
-      img.classList.add("bucketlist");
-      figcaption.classList.add("bucketlist");
+      figure.classList.add("bucketlist");
     }
   };
 
@@ -78,24 +76,6 @@ allButton.addEventListener("click", () => {
 
 //Set active state on clicked button
 
-//solution 1
-
-// const buttonsParent= document.querySelector('.buttons');
-// const buttons= document.querySelectorAll('.button');
-
-// buttonsParent.addEventListener('click', event => {
-
-//   buttons.forEach(button => {
-
-//     if(button.getAttribute('class') === event.target.getAttribute('class'))
-//     button.classList.add('active-button');
-//     else
-//     button.classList.remove('active-button');
-//     });
-// });
-
-//solution 2
-
 const buttons = document.querySelectorAll(".button");
 let activeBtn = null;
 
@@ -105,7 +85,7 @@ buttons.forEach((button) => {
 
     if (activeBtn) {
       activeBtn.classList.remove("active-button");
-      current.setAttribute("aria-pressed", false);
+      activeBtn.setAttribute("aria-pressed", false);
     }
 
     current.setAttribute("aria-pressed", true);
@@ -129,6 +109,5 @@ let scrollPos = 0;
 window.addEventListener("scroll", function () {
   if (document.body.getBoundingClientRect().top === scrollPos) {
     document.querySelector(".navbar").classList.remove("shrink");
-    document.querySelector(".buttons").classList.remove("fade");
   }
 });
