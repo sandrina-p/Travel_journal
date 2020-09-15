@@ -1,246 +1,113 @@
-var moment = require('moment'); 
+import moment from "moment";
+import destinationsList from "./scripts/destinationList.js";
 
-var myDate = new Date();
-var dateFormating = moment(myDate).format('LL');
+//get list of urls
+const getURL = (destinationsList) => {
+  let url = destinationsList.map((obj) => obj.photo.valueOf());
+  return url;
+};
 
-console.log(dateFormating);
+//create elements for each city
+destinationsList.forEach((destination) => {
+  //img wrapper
+  const createImg = () => {
+    let figure = document.createElement("figure");
+    figure.classList.add("img-container");
+    //img element
+    let img = document.createElement("img");
+    img.style.objectFit = "cover";
+    document.querySelector(".gallery").appendChild(figure);
+    figure.appendChild(img);
+    //img caption
+    let figcaption = document.createElement("figcaption");
+    figcaption.classList.add("caption");
+    figure.appendChild(figcaption);
+    figcaption.insertAdjacentHTML(
+      "beforeend",
+      `<h2 class='caption__city'>${destination.city}</h2>`
+    );
+    figcaption.insertAdjacentHTML(
+      "beforeend",
+      `<h3 class='caption__country'>${destination.country}</h3>`
+    );
 
-let destinations = [
-    
-    //Visited
+    //urls
+    img.src = destination.photo;
 
-    {
-      city: 'Rome',
-      country: 'Italy',
-      photo: 'img/rome.jpg',
-      visited: true
-    },
-    {
-      city: 'Milan',
-      country: 'Italy',
-      photo: 'img/milan.jpg',
-      visited: true
-    },
-    {
-      city: 'Venice',
-      country: 'Italy',
-      photo: 'img/venice.jpg',
-      visited: true
-    },
-    {
-      city: 'Padua',
-      country: 'Italy',
-      photo: 'img/padua.jpg',
-      visited: true
-    },
-    {
-      city: 'Verona',
-      country: 'Italy',
-      photo: 'img/verona.jpg',
-      visited: true
-    },
-    {
-      city: 'Florence',
-      country: 'Italy',
-      photo: 'img/florence.jpg',
-      visited: true
-    },
-    {
-      city: 'Bergamo',
-      country: 'Italy',
-      photo: 'img/bergamo.jpg',
-      visited: true
-    },
-    {
-      city: 'Barcelona',
-      country: 'Spain',
-      photo: 'img/barcelona.jpg',
-      visited: true
-    },
-    {
-      city: 'Lloret de mar',
-      country: 'Spain',
-      photo: 'img/lloretdemar.jpg',
-      visited: true
-      },
-    {
-      city: 'Nice',
-      country: 'France',
-      photo: 'img/nice.jpg',
-      visited: true
-    },
-    {
-      city: 'Cannes',
-      country: 'France',
-      photo: 'img/cannes.jpg',
-      visited: true
-    },
-    {
-      city: 'Stockholm',
-      country: 'Sweden',
-      photo: 'img/stockholm.jpg',
-      visited: true
-    },
-    {
-      city: 'Malmo',
-      country: 'Sweeden',
-      photo: 'img/malmo.jpg',
-      visited: true
-    },
-    {
-      city: 'Copenhagen',
-      country: 'Denmark',
-      photo: 'img/copenhagen.jpg',
-      visited: true
-    },
-    {
-      city: 'Vienna',
-      country: 'Austria',
-      photo: 'img/vienna.jpg',
-      visited: true
-    },
-    {
-      city: 'Monaco',
-      country: 'Monaco',
-      photo: 'img/monaco.jpg',
-      visited: true
-    },
-    {
-      city: 'Budapest',
-      country: 'Hungary',
-      photo: 'img/budapest.jpg',
-      visited: true
-    },
-    {
-      city: 'Prague',
-      country: 'Czech republic',
-      photo: 'img/prague.jpg',
-      visited: true
-    },
-    {
-      city: 'Belgrade',
-      country: 'Serbia',
-      photo: 'img/belgrade.jpg',
-      visited: true
-    },
-    {
-      city: 'Zlatibor',
-      country: 'Serbia',
-      photo: 'img/zlatibor.jpg',
-      visited: true
-    },
-    {
-      city: 'Kopaonik',
-      country: 'Serbia',
-      photo: 'img/kopaonik.jpg',
-      visited: true
-    },
-    {
-      city: 'Bratislava',
-      country: 'Slovakia',
-      photo: 'img/bratislava.jpg',
-      visited: true
-    },
-    {
-      city: 'Sofia',
-      country: 'Bulgaria',
-      photo: 'img/sofia.jpg',
-      visited: true
-    },
-    {         
-      city: 'Bansko',
-      country: 'Slovakia',
-      photo: 'img/bansko1.jpg',
-      visited: true
-    },
-    {         
-      city: 'Varna',
-      country: 'Slovakia',
-      photo: 'img/varna.jpg',
-      visited: true
-    },
-    {
-      city: 'Thessaloniki',
-      country: 'Greece',
-      photo: 'img/thessaloniki.jpg',
-      visited: true
-    },
-    {
-      city: 'Istanbul',
-      country: 'Turkey',
-      photo: 'img/istanbul.jpg',
-      visited: true
-    },
+    //add classes
+    if (destination.visited === true) {
+      figure.classList.add("visited");
+    } else {
+      figure.classList.add("bucketlist");
+    }
+  };
 
-    //Wishlist
+  return createImg(getURL(destinationsList));
+});
 
-    {
-        city: 'Paris',
-        country: 'France',
-        photo: 'img/paris.jpg',
-        visited: false
-    },
-    {
-        city: 'Santorini',
-        country: 'Greece',
-        photo: 'img/santorini.jpg',
-        visited: false
-    },
-    {
-        city: 'New York',
-        country: 'U.S.',
-        photo: 'img/newyork.jpg',
-        visited: false
-    },
-    {
-        city: 'Marrakech',
-        country: 'Morocco',
-        photo: 'img/marrakech.jpg',
-        visited: false
-    },
-    {
-        city: 'Amsterdam',
-        country: 'Netherlands',
-        photo: 'img/Amsterdam.png',
-        visited: false
-    },
-    {
-        city: 'Berlin',
-        country: 'Germany',
-        photo: 'img/berlin.jpg',
-        visited: false
-    },
-    {
-        city: 'Lisbon',
-        country: 'Porugal',
-        photo: 'img/lisbon.jpg',
-        visited: false
-    },
-    {
-        city: 'Tokyo',
-        country: 'Japan',
-        photo: 'img/tokyo.jpg',
-        visited: false
-    },
-    {
-        city: 'Sienna',
-        country: 'Italy',
-        photo: 'img/nice.jpg',
-        visited: false
+//connect lists and buttons
 
-    },
-    {
-        city: 'Dublin',
-        country: 'Ireland',
-        photo: 'img/dublin.jpg',
-        visited: false
-    },
-    {
-        city: 'Saint petersburg',
-        country: 'Russia',
-        photo: 'img/saintpetersburg.jpg',
-        visited: false
-    },
-  ]
+//get buttons
+const visitedButton = document.querySelector(".button__visited");
+const bucketlistButton = document.querySelector(".button__buckelist");
+const allButton = document.querySelector(".button__all");
+//get all .gallery items
+const galleryList = document.querySelector(".gallery");
 
+//set .visited as default active button
+document.addEventListener("DOMContentLoaded", function (event) {
+  document.querySelector(".button__visited").click();
+});
 
+visitedButton.addEventListener("click", () => {
+  galleryList.classList.add("visited");
+  galleryList.classList.remove("bucketlist");
+});
+
+bucketlistButton.addEventListener("click", () => {
+  galleryList.classList.add("bucketlist");
+  galleryList.classList.remove("visited");
+});
+
+allButton.addEventListener("click", () => {
+  galleryList.classList.remove("bucketlist");
+  galleryList.classList.remove("visited");
+});
+
+//Set active state on clicked button
+
+const buttons = document.querySelectorAll(".button");
+let activeBtn = null;
+
+buttons.forEach((button) => {
+  button.addEventListener("click", (event) => {
+    const current = event.target;
+
+    if (activeBtn) {
+      activeBtn.classList.remove("active-button");
+      activeBtn.setAttribute("aria-pressed", false);
+    }
+
+    current.setAttribute("aria-pressed", true);
+    current.classList.add("active-button");
+
+    activeBtn = current;
+  });
+});
+
+//shrink header on scroll
+
+const navbar = document.querySelector(".navbar");
+
+document.addEventListener("scroll", () => {
+  navbar.classList.add("shrink");
+});
+
+//Change header behaviour based on scrolling position
+let scrollPos = 0;
+
+window.addEventListener("scroll", function () {
+  if (document.body.getBoundingClientRect().top === scrollPos) {
+    document.querySelector(".navbar").classList.remove("shrink");
+  }
+});
