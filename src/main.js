@@ -95,6 +95,53 @@ buttons.forEach((button) => {
   });
 });
 
+// Object Literal Module attempt
+
+(function () {
+  const buttons = {
+    init: function () {
+      this.cacheDom();
+      this.bindEvents();
+      // this. render();
+    },
+    cacheDom: function () {
+      this.buttons = document.querySelector(".buttons");
+      this.visited = this.buttons.find(".button__visited");
+      this.bucketlist = this.buttons.find(".button__bucketlist");
+      this.all = this.buttons.find(".button__all");
+      this.gallery = document.querySelector(".gallery");
+    },
+    bindEvents: function () {
+      this.visited.addEventListener("click", () => {
+        this.addVisited.bind(this);
+      });
+      this.bucketlist.addEventListener("click", () => {
+        this.addBucketlist.bind(this);
+      });
+      this.visited.contains(".bucketlist").addEventListener("click", () => {
+        this.removeBucketlist.bind(this);
+      });
+      this.bucketlist.contains(".visited").addEventListener("click", () => {
+        this.removeVisited.bind(this);
+      });
+    },
+
+    addVisited: function () {
+      this.gallery.classList.add("visited");
+    },
+    addBucketlist: function () {
+      this.gallery.classList.add("bucketlist");
+    },
+    removeVisited: function () {
+      this.gallery.classList.remove("visited");
+    },
+    removeBucketlist: function () {
+      this.gallery.classList.remove("bucketlist");
+    },
+  };
+  buttons.init();
+})();
+
 //shrink header on scroll
 
 const navbar = document.querySelector(".navbar");
