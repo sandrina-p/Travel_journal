@@ -37,7 +37,7 @@ destinationsList.forEach((destination) => {
     //set url for each photo
     img.src = destination.photo;
 
-    //add the correct class to lists of visited/bucketlist cities
+    //add the correct class to img wrapper
     if (destination.visited === true) {
       figure.classList.add("visited");
     } else {
@@ -48,8 +48,6 @@ destinationsList.forEach((destination) => {
   return createImg(getURL(destinationsList));
 });
 
-//connect lists and buttons
-
 // get buttons
 const visitedButton = document.querySelector(".button__visited");
 const bucketlistButton = document.querySelector(".button__buckelist");
@@ -57,11 +55,12 @@ const allButton = document.querySelector(".button__all");
 //get all photos
 const galleryList = document.querySelector(".gallery");
 
-//set .visited as default list
+//set visited cities as default list
 document.addEventListener("DOMContentLoaded", function (event) {
   document.querySelector(".button__visited").click();
 });
 
+//connect each button with the right list
 visitedButton.addEventListener("click", () => {
   galleryList.classList.add("visited");
   galleryList.classList.remove("bucketlist");
@@ -140,8 +139,6 @@ buttons.forEach((button) => {
 // })();
 
 //shrink header on scroll
-
-// const navbar = document.querySelector(".navbar");
 
 document.addEventListener("scroll", () => {
   const navbar = document.querySelector(".navbar");
