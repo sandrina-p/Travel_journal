@@ -3,23 +3,26 @@ import destinationsList from "./scripts/destinationList.js";
 
 //get list of urls
 const getURL = (destinationsList) => {
-  let url = destinationsList.map((obj) => obj.photo.valueOf());
+  const url = destinationsList.map((item) => item.photo.valueOf());
   return url;
 };
 
-//create elements for each city
+//create html elements for each city
 destinationsList.forEach((destination) => {
-  //img wrapper
+  //create img wrapper
   const createImg = () => {
-    let figure = document.createElement("figure");
+    const figure = document.createElement("figure");
     figure.classList.add("img-container");
-    //img element
-    let img = document.createElement("img");
+
+    //create img element
+    const img = document.createElement("img");
     img.style.objectFit = "cover";
+    //add img to figure element
     document.querySelector(".gallery").appendChild(figure);
     figure.appendChild(img);
-    //img caption
-    let figcaption = document.createElement("figcaption");
+
+    //set img captions
+    const figcaption = document.createElement("figcaption");
     figcaption.classList.add("caption");
     figure.appendChild(figcaption);
     figcaption.insertAdjacentHTML(
@@ -31,10 +34,10 @@ destinationsList.forEach((destination) => {
       `<h3 class='caption__country'>${destination.country}</h3>`
     );
 
-    //urls
+    //set url for each photo
     img.src = destination.photo;
 
-    //add classes
+    //add the correct class to lists of visited/bucketlist cities
     if (destination.visited === true) {
       figure.classList.add("visited");
     } else {
@@ -47,14 +50,14 @@ destinationsList.forEach((destination) => {
 
 //connect lists and buttons
 
-//get buttons
+// get buttons
 const visitedButton = document.querySelector(".button__visited");
 const bucketlistButton = document.querySelector(".button__buckelist");
 const allButton = document.querySelector(".button__all");
-//get all .gallery items
+//get all photos
 const galleryList = document.querySelector(".gallery");
 
-//set .visited as default active button
+//set .visited as default list
 document.addEventListener("DOMContentLoaded", function (event) {
   document.querySelector(".button__visited").click();
 });
@@ -75,7 +78,6 @@ allButton.addEventListener("click", () => {
 });
 
 //Set active state on clicked button
-
 const buttons = document.querySelectorAll(".button");
 let activeBtn = null;
 
@@ -97,63 +99,59 @@ buttons.forEach((button) => {
 
 // Object Literal Module attempt
 
-(function () {
-  const buttons = {
-    init: function () {
-      this.cacheDom();
-      this.bindEvents();
-      // this. render();
-    },
-    cacheDom: function () {
-      this.buttons = document.querySelector(".buttons");
-      this.visited = this.buttons.find(".button__visited");
-      this.bucketlist = this.buttons.find(".button__bucketlist");
-      this.all = this.buttons.find(".button__all");
-      this.gallery = document.querySelector(".gallery");
-    },
-    bindEvents: function () {
-      this.visited.addEventListener("click", () => {
-        this.addVisited.bind(this);
-      });
-      this.bucketlist.addEventListener("click", () => {
-        this.addBucketlist.bind(this);
-      });
-      this.visited.contains(".bucketlist").addEventListener("click", () => {
-        this.removeBucketlist.bind(this);
-      });
-      this.bucketlist.contains(".visited").addEventListener("click", () => {
-        this.removeVisited.bind(this);
-      });
-    },
+// (function () {
+//   const buttons = {
+//     init: function () {
+//       this.cacheDom();
+//       this.bindEvents();
+//       // this.render();
+//     },
 
-    addVisited: function () {
-      this.gallery.classList.add("visited");
-    },
-    addBucketlist: function () {
-      this.gallery.classList.add("bucketlist");
-    },
-    removeVisited: function () {
-      this.gallery.classList.remove("visited");
-    },
-    removeBucketlist: function () {
-      this.gallery.classList.remove("bucketlist");
-    },
-  };
-  buttons.init();
-})();
+//     cacheDom: function () {
+//       this.buttons = Array.from(document.querySelector(".buttons").children);
+//       this.visited = this.buttons[0];
+//       this.bucketlist = this.buttons[1];
+//       this.all = this.buttons[2];
+//       this.gallery = document.querySelector(".gallery");
+//     },
+
+//     bindEvents: function () {
+//       this.visited.addEventListener("click", addVisited);
+//       this.bucketlist.addEventListener("click", addBucketlist);
+//       this.all.addEventListener("click", showAll);
+//     },
+
+//     addVisited: function () {
+//       this.gallery.classList.add("visited");
+//       this.gallery.classList.remove("bucketlist");
+//     },
+
+//     addBucketlist: function () {
+//       this.gallery.classList.add("bucketlist");
+//       this.gallery.classList.remove("visited");
+//     },
+//     showAll: function () {
+//       this.gallery.classList.remove("visited");
+//       this.gallery.classList.remove("bucketlist");
+//     },
+//   };
+
+//   buttons.init();
+// })();
 
 //shrink header on scroll
 
-const navbar = document.querySelector(".navbar");
+// const navbar = document.querySelector(".navbar");
 
 document.addEventListener("scroll", () => {
+  const navbar = document.querySelector(".navbar");
   navbar.classList.add("shrink");
 });
 
 //Change header behaviour based on scrolling position
-let scrollPos = 0;
 
 window.addEventListener("scroll", function () {
+  const scrollPos = 0;
   if (document.body.getBoundingClientRect().top === scrollPos) {
     document.querySelector(".navbar").classList.remove("shrink");
   }
