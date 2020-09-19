@@ -61,17 +61,17 @@ document.addEventListener("DOMContentLoaded", function (event) {
 });
 
 //connect each button with the right list
-visitedButton.addEventListener("click", () => {
+const getVisitedCities = visitedButton.addEventListener("click", () => {
   galleryList.classList.add("visited");
   galleryList.classList.remove("bucketlist");
 });
 
-bucketlistButton.addEventListener("click", () => {
+const getBucketlistCities = bucketlistButton.addEventListener("click", () => {
   galleryList.classList.add("bucketlist");
   galleryList.classList.remove("visited");
 });
 
-allButton.addEventListener("click", () => {
+const getAllCities = allButton.addEventListener("click", () => {
   galleryList.classList.remove("bucketlist");
   galleryList.classList.remove("visited");
 });
@@ -80,7 +80,7 @@ allButton.addEventListener("click", () => {
 const buttons = document.querySelectorAll(".button");
 let activeBtn = null;
 
-buttons.forEach((button) => {
+const setActiveBtn = buttons.forEach((button) => {
   button.addEventListener("click", (event) => {
     const current = event.target;
 
@@ -140,14 +140,14 @@ buttons.forEach((button) => {
 
 //shrink header on scroll
 
-document.addEventListener("scroll", () => {
+const shrinkNav = document.addEventListener("scroll", () => {
   const navbar = document.querySelector(".navbar");
   navbar.classList.add("shrink");
 });
 
 //Change header behaviour based on scrolling position
 
-window.addEventListener("scroll", function () {
+const navSize = window.addEventListener("scroll", function () {
   const scrollPos = 0;
   if (document.body.getBoundingClientRect().top === scrollPos) {
     document.querySelector(".navbar").classList.remove("shrink");
