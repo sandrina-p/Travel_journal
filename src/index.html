@@ -36,9 +36,14 @@
 
     <div class="add-city container">
       <p id="cityName">City</p>
-      <input type="text" name="text" id="inputCity" />
+      <input type="text" onfocus="this.value=''" name="text" id="inputCity" />
       <p id="countryName">Country</p>
-      <input type="text" name="text" id="inputCountry" />
+      <input
+        type="text"
+        onfocus="this.value=''"
+        name="text"
+        id="inputCountry"
+      />
       <!-- add photo -->
       <input type="file" multiple="false" accept="image/*" id="inputImg" />
       <!-- choose list to upload to-->

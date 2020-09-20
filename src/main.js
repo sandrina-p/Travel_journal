@@ -154,58 +154,40 @@ const navSize = window.addEventListener("scroll", function () {
   }
 });
 
-// const pushData = () => {
-//   const inputCity = document.getElementById("inputCity").value;
-
-//   destinationsList.push(inputCity);
-
-//   let pval = "";
-//   for (let i = 0; i < destinationsList; i++) {
-//     pval = pval + destinationsList[i];
-//   }
-
-//   document.getElementById("cityName").innerHTML = pval;
-// };
-
-// pushData();
-
-//create an array for a new city
-const addCity = () => {
-  let newCity = [];
-  newCity.push({
+//create new city
+const addCity = function () {
+  return {
     city: inputCity.value,
     country: inputCountry.value,
     visited: "",
-  });
-  console.log(newCity);
-  return newCity;
+  };
 };
-addCity();
+const newCity = new addCity();
 
 //add new city on click
-let uploadButton = document.querySelector(".upload");
+const uploadButton = document.querySelector(".upload");
 uploadButton.addEventListener("click", addCity);
 
-destinationsList.push(addCity());
-console.log(destinationsList);
+destinationsList.push(newCity);
 
-//select if a city is a visited or bucketlist item
+//set the value of newCity.visited
 const radioButtons = () => {
   const rdVisited = document.getElementById("rd-visited");
   const rdBucketlist = document.getElementById("rd-bucketlist");
 
   rdVisited.addEventListener("click", () => {
     if (rdVisited.checked == true) {
-      destinationsList.visited = true;
+      newCity.visited = true;
+      console.log(newCity);
       console.log(destinationsList);
-      return destinationsList;
     }
   });
   rdBucketlist.addEventListener("click", () => {
     if (rdBucketlist.checked == true) {
-      destinationsList.visited = false;
-      return destinationsList;
+      newCity.visited = false;
+      console.log(newCity);
+      console.log(destinationsList);
     }
   });
 };
-radioButtons(addCity());
+radioButtons();
