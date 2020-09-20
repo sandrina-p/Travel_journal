@@ -163,20 +163,29 @@ const addCity = function () {
 };
 const newCity = new addCity();
 
-//add new city on clicking the upload button
-const uploadButton = document.querySelector(".upload");
-uploadButton.addEventListener("click", () => {
+const newCityForm = document.getElementById("add-city-form");
+console.log(newCityForm);
+
+//submit form
+newCityForm.addEventListener("submit", (event) => {
   addCity();
   destinationsList.push(newCity);
   console.log(destinationsList);
-  // ?  clear input fields when the upload button is clicked
-  const inputs = document.querySelectorAll("input");
-  inputs.forEach((input) => {
-    if (!input.value === null) {
-      input.value = "";
-    }
-  });
+  event.preventDefault();
 });
+
+// ?  clear input fields when the upload button is clicked
+const clearFields = () => {
+  const uploadBtn = document.querySelector(".upload");
+  const inputs = document.querySelectorAll("input");
+
+  // uploadBtn.addEventListener("click", () => {
+  //   inputs.forEach((input) => {
+  //     input.value = "";
+  //   });
+  // });
+};
+clearFields();
 
 //set the value of newCity.visited (radio buttons)
 const radioButtons = () => {
