@@ -146,7 +146,6 @@ const shrinkNav = document.addEventListener("scroll", () => {
 });
 
 //Change header behaviour based on scrolling position
-
 const navSize = window.addEventListener("scroll", function () {
   const scrollPos = 0;
   if (document.body.getBoundingClientRect().top === scrollPos) {
@@ -164,13 +163,22 @@ const addCity = function () {
 };
 const newCity = new addCity();
 
-//add new city on click
+//add new city on clicking the upload button
 const uploadButton = document.querySelector(".upload");
-uploadButton.addEventListener("click", addCity);
+uploadButton.addEventListener("click", () => {
+  addCity();
+  destinationsList.push(newCity);
+  console.log(destinationsList);
 
-destinationsList.push(newCity);
+  const inputs = document.querySelectorAll("input");
+  inputs.forEach((input) => {
+    if (!input.value === null) {
+      input.value = "";
+    }
+  });
+});
 
-//set the value of newCity.visited
+//set the value of newCity.visited (radio buttons)
 const radioButtons = () => {
   const rdVisited = document.getElementById("rd-visited");
   const rdBucketlist = document.getElementById("rd-bucketlist");
@@ -179,14 +187,12 @@ const radioButtons = () => {
     if (rdVisited.checked == true) {
       newCity.visited = true;
       console.log(newCity);
-      console.log(destinationsList);
     }
   });
   rdBucketlist.addEventListener("click", () => {
     if (rdBucketlist.checked == true) {
       newCity.visited = false;
       console.log(newCity);
-      console.log(destinationsList);
     }
   });
 };
