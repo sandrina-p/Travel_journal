@@ -34,6 +34,35 @@
       </div>
     </main>
 
+    <div class="add-city container">
+      <p id="cityName">City</p>
+      <input type="text" name="text" id="inputCity" />
+      <p id="countryName">Country</p>
+      <input type="text" name="text" id="inputCountry" />
+      <!-- add photo -->
+      <input type="file" multiple="false" accept="image/*" id="inputImg" />
+      <!-- choose list to upload to-->
+      <div class="radio-buttons">
+        <input
+          id="rd-visited"
+          type="radio"
+          name="btn"
+          value="Visited"
+          label="Visited"
+        />
+        <label for="Visited">Visited</label>
+        <input
+          id="rd-bucketlist"
+          type="radio"
+          name="btn"
+          value="Bucketlist"
+          label="Bucketlist"
+        />
+        <label for="Bucketlist">Bucketlist</label>
+      </div>
+      <button class="upload">Upload</button>
+    </div>
+
     <script src="scripts/destinationList.js"></script>
     <script src="main.js"></script>
   </body>

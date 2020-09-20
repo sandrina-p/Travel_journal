@@ -153,3 +153,59 @@ const navSize = window.addEventListener("scroll", function () {
     document.querySelector(".navbar").classList.remove("shrink");
   }
 });
+
+// const pushData = () => {
+//   const inputCity = document.getElementById("inputCity").value;
+
+//   destinationsList.push(inputCity);
+
+//   let pval = "";
+//   for (let i = 0; i < destinationsList; i++) {
+//     pval = pval + destinationsList[i];
+//   }
+
+//   document.getElementById("cityName").innerHTML = pval;
+// };
+
+// pushData();
+
+//create an array for a new city
+const addCity = () => {
+  let newCity = [];
+  newCity.push({
+    city: inputCity.value,
+    country: inputCountry.value,
+    visited: "",
+  });
+  console.log(newCity);
+  return newCity;
+};
+addCity();
+
+//add new city on click
+let uploadButton = document.querySelector(".upload");
+uploadButton.addEventListener("click", addCity);
+
+destinationsList.push(addCity());
+console.log(destinationsList);
+
+//select if a city is a visited or bucketlist item
+const radioButtons = () => {
+  const rdVisited = document.getElementById("rd-visited");
+  const rdBucketlist = document.getElementById("rd-bucketlist");
+
+  rdVisited.addEventListener("click", () => {
+    if (rdVisited.checked == true) {
+      destinationsList.visited = true;
+      console.log(destinationsList);
+      return destinationsList;
+    }
+  });
+  rdBucketlist.addEventListener("click", () => {
+    if (rdBucketlist.checked == true) {
+      destinationsList.visited = false;
+      return destinationsList;
+    }
+  });
+};
+radioButtons(addCity());
