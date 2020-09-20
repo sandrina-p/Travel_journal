@@ -96,7 +96,7 @@ const setActiveBtn = buttons.forEach((button) => {
   });
 });
 
-// Object Literal Module attempt
+// Object Literal Module
 
 // (function () {
 //   const buttons = {
@@ -169,7 +169,7 @@ uploadButton.addEventListener("click", () => {
   addCity();
   destinationsList.push(newCity);
   console.log(destinationsList);
-
+  // ?  clear input fields when the upload button is clicked
   const inputs = document.querySelectorAll("input");
   inputs.forEach((input) => {
     if (!input.value === null) {
