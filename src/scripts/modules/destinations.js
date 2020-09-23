@@ -1,4 +1,4 @@
-import destinationsList from "./scripts/destinationList.js";
+import destinationsList from "../destinationList.js";
 
 // Create  and display destination lists
 
@@ -127,8 +127,6 @@ function init() {
   bindEvents();
   render();
 }
-
-init();
 
 const module = { init };
 export default module;
