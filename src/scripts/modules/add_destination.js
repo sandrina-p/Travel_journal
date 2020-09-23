@@ -1,3 +1,5 @@
+import destinationsList from "./scripts/destinationList.js";
+
 //create new city
 const addCity = function () {
   return {

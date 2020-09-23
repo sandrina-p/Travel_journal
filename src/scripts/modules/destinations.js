@@ -1,3 +1,5 @@
+import destinationsList from "./scripts/destinationList.js";
+
 // Create  and display destination lists
 
 // Set the "shared" variables among different methods:
@@ -128,4 +130,5 @@ function init() {
 
 init();
 
-export default init;
+const module = { init };
+export default module;

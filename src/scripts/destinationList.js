@@ -1,4 +1,4 @@
-var moment = require("moment");
+export var moment = require("moment");
 
 var myDate = new Date();
 var dateFormating = moment(myDate).format("LL");
