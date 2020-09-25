@@ -1,55 +1,80 @@
 import destinationsList from "../destinationList.js";
 
-//create new city
-const addCity = function () {
+let form;
+let uploadBtn;
+let radioBtns;
+let radioVisited;
+let radioBucketlist;
+let allInputs;
+let newCity;
+let cityInput;
+let countryInput;
+let photoUrl;
+
+function cacheDom() {
+  form = document.getElementById("add-city-form");
+  uploadBtn = document.getElementById("upload");
+  radioBtns = document.querySelectorAll("input[type=radio]");
+  radioVisited = document.getElementById("rd-visited");
+  radioBucketlist = document.getElementById("rd-bucketlist");
+  newCity = createCity();
+  cityInput = document.getElementById("inputCity").value;
+  countryInput = document.getElementById("inputCountry").value;
+}
+
+function bindEvents() {
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+  });
+  uploadBtn.addEventListener("click", createCity);
+  uploadBtn.addEventListener("click", addCity);
+  uploadBtn.addEventListener("click", () => {
+    console.log(destinationsList);
+  });
+  radioVisited.addEventListener("click", isVisited);
+  radioBucketlist.addEventListener("click", isBucketlist);
+}
+
+function createCity() {
   return {
-    city: inputCity.value,
-    country: inputCountry.value,
+    city: cityInput,
+    country: countryInput,
     visited: "",
   };
-};
-const newCity = new addCity();
+}
 
-const newCityForm = document.getElementById("add-city-form");
-console.log(newCityForm);
+function addCity() {
+  return destinationsList.push(newCity);
+}
 
-//submit form
-newCityForm.addEventListener("submit", (event) => {
-  addCity();
-  destinationsList.push(newCity);
-  console.log(destinationsList);
-  event.preventDefault();
-});
+function isVisited() {
+  if (radioVisited.checked === true) {
+    newCity.visited = true;
+    console.log(newCity);
+    return newCity;
+  }
+}
 
-// ?  clear input fields when the upload button is clicked
-const clearFields = () => {
-  const uploadBtn = document.querySelector(".upload");
-  const inputs = document.querySelectorAll("input");
+function isBucketlist() {
+  if (radioBucketlist.checked === true) {
+    newCity.visited = false;
+    console.log(newCity);
+    return newCity;
+  }
+}
 
-  // uploadBtn.addEventListener("click", () => {
-  //   inputs.forEach((input) => {
-  //     input.value = "";
-  //   });
-  // });
-};
-clearFields();
-
-//set the value of newCity.visited (radio buttons)
-const radioButtons = () => {
-  const rdVisited = document.getElementById("rd-visited");
-  const rdBucketlist = document.getElementById("rd-bucketlist");
-
-  rdVisited.addEventListener("click", () => {
-    if (rdVisited.checked == true) {
-      newCity.visited = true;
-      console.log(newCity);
-    }
+function initRadioBtn() {
+  radioBtns.forEach((button) => {
+    isVisited();
+    isBucketlist();
   });
-  rdBucketlist.addEventListener("click", () => {
-    if (rdBucketlist.checked == true) {
-      newCity.visited = false;
-      console.log(newCity);
-    }
-  });
-};
-radioButtons();
+}
+
+function init() {
+  cacheDom();
+  bindEvents();
+  initRadioBtn();
+}
+
+const module = { init };
+export default module;

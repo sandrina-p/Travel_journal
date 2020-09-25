@@ -36,12 +36,12 @@
 
     <form id="add-city-form" class="container">
       <p id="cityName">City</p>
-      <input type="text" onfocus="this.value=''" name="text" id="inputCity" />
+      <input type="text" name="text" onfocus="this.value=''" id="inputCity" />
       <p id="countryName">Country</p>
       <input
         type="text"
-        onfocus="this.value=''"
         name="text"
+        onfocus="this.value=''"
         id="inputCountry"
       />
       <!-- add photo field-->
@@ -66,7 +66,9 @@
         <label for="Bucketlist">Bucketlist</label>
       </div>
       <!-- Upload button -->
-      <button type="submit" class="upload">Upload</button>
+      <button type="submit" id="upload" onClick="this.form.reset()">
+        Upload
+      </button>
     </form>
 
     <script src="main.js"></script>
