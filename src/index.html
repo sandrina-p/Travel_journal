@@ -36,16 +36,11 @@
 
     <form id="add-city-form" class="container">
       <p id="cityName">City</p>
-      <input type="text" name="text" onfocus="this.value=''" id="inputCity" />
+      <input type="text" name="text" id="inputCity" />
       <p id="countryName">Country</p>
-      <input
-        type="text"
-        name="text"
-        onfocus="this.value=''"
-        id="inputCountry"
-      />
+      <input type="text" name="text" id="inputCountry" />
       <!-- add photo field-->
-      <input type="file" multiple="false" accept="image/*" id="inputImg" />
+      <input type="url" id="inputImg" />
       <!-- radio buttons-->
       <div class="radio-buttons">
         <input
@@ -66,9 +61,7 @@
         <label for="Bucketlist">Bucketlist</label>
       </div>
       <!-- Upload button -->
-      <button type="submit" id="upload" onClick="this.form.reset()">
-        Upload
-      </button>
+      <button type="submit" id="upload">Upload</button>
     </form>
 
     <script src="main.js"></script>

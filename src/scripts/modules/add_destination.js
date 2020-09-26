@@ -5,11 +5,12 @@ let uploadBtn;
 let radioBtns;
 let radioVisited;
 let radioBucketlist;
-let allInputs;
-let newCity;
 let cityInput;
 let countryInput;
-let photoUrl;
+let photoInput;
+let newCity;
+let newCountry;
+let newPhoto;
 
 function cacheDom() {
   form = document.getElementById("add-city-form");
@@ -17,49 +18,53 @@ function cacheDom() {
   radioBtns = document.querySelectorAll("input[type=radio]");
   radioVisited = document.getElementById("rd-visited");
   radioBucketlist = document.getElementById("rd-bucketlist");
-  newCity = createCity();
-  cityInput = document.getElementById("inputCity").value;
-  countryInput = document.getElementById("inputCountry").value;
+  cityInput = document.getElementById("inputCity");
+  countryInput = document.getElementById("inputCountry");
+  photoInput = document.getElementById("inputImg");
 }
 
 function bindEvents() {
   form.addEventListener("submit", (event) => {
+    setValues();
+    addDestination();
     event.preventDefault();
-  });
-  uploadBtn.addEventListener("click", createCity);
-  uploadBtn.addEventListener("click", addCity);
-  uploadBtn.addEventListener("click", () => {
     console.log(destinationsList);
   });
   radioVisited.addEventListener("click", isVisited);
   radioBucketlist.addEventListener("click", isBucketlist);
+  cityInput.addEventListener("change", (event) => {
+    updateCity("city", event.target.value);
+  });
+  countryInput.addEventListener("change", (event) => {
+    updateCountry("country", event.target.value);
+  });
+  photoInput.addEventListener("change", (event) => {
+    updatePhoto("photo", event.target.value);
+  });
 }
 
-function createCity() {
+function setValues() {
   return {
     city: cityInput,
     country: countryInput,
     visited: "",
+    url: photoInput,
   };
 }
 
-function addCity() {
-  return destinationsList.push(newCity);
+function addDestination() {
+  return destinationsList.push({ ...newCity, ...newCountry, ...newPhoto });
 }
 
 function isVisited() {
   if (radioVisited.checked === true) {
     newCity.visited = true;
-    console.log(newCity);
-    return newCity;
   }
 }
 
 function isBucketlist() {
   if (radioBucketlist.checked === true) {
     newCity.visited = false;
-    console.log(newCity);
-    return newCity;
   }
 }
 
@@ -68,6 +73,30 @@ function initRadioBtn() {
     isVisited();
     isBucketlist();
   });
+}
+
+function updateCountry(fieldName, value) {
+  console.log("updateCountry:", fieldName, value);
+  newCountry = {
+    ...newCountry,
+    [fieldName]: value,
+  };
+}
+
+function updateCity(fieldName, value) {
+  console.log("updateCity:", fieldName, value);
+  newCity = {
+    ...newCity,
+    [fieldName]: value,
+  };
+}
+
+function updatePhoto(fieldName, value) {
+  console.log("updatePhoto:", fieldName, value);
+  newPhoto = {
+    ...newPhoto,
+    [fieldName]: value,
+  };
 }
 
 function init() {
