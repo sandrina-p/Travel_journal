@@ -1,4 +1,5 @@
 import destinationsList from "../destinationList.js";
+import events from "./pubsub.js";
 
 let form;
 let uploadBtn;
@@ -11,6 +12,7 @@ let photoInput;
 let newCity;
 let newCountry;
 let newPhoto;
+// let updatedList
 
 function cacheDom() {
   form = document.getElementById("add-city-form");
@@ -30,6 +32,22 @@ function bindEvents() {
     event.preventDefault();
     console.log(destinationsList);
   });
+
+  // events.publish('destinationAdded', (form.addEventListener("submit", (event) => {
+  //   setValues();
+  //   addDestination();
+  //   event.preventDefault();
+  //   console.log(destinationsList);
+  // })));
+
+  // updatedList = form.addEventListener("submit", (event) => {
+  //   setValues();
+  //   addDestination();
+  //   event.preventDefault();
+  //   console.log(destinationsList);
+  //   events.publish('destinationAdded', updatedList)
+  // });
+
   radioVisited.addEventListener("click", isVisited);
   radioBucketlist.addEventListener("click", isBucketlist);
   cityInput.addEventListener("change", (event) => {
@@ -53,9 +71,12 @@ function setValues() {
 }
 
 function addDestination() {
-  return destinationsList.push({ ...newCity, ...newCountry, ...newPhoto });
+  return destinationsList.push({
+    ...newCity,
+    ...newCountry,
+    ...newPhoto,
+  });
 }
-
 function isVisited() {
   if (radioVisited.checked === true) {
     newCity.visited = true;

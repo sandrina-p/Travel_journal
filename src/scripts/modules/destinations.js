@@ -1,4 +1,5 @@
 import destinationsList from "../destinationList.js";
+import events from "./pubsub.js";
 
 // Create  and display destination lists
 
@@ -26,6 +27,7 @@ function bindEvents() {
   document.addEventListener("DOMContentLoaded", setActive);
   document.addEventListener("scroll", shrinkNav);
   window.addEventListener("scroll", restoreNav);
+  events.subscribe("destinationAdded", renderDestination);
 }
 
 function renderDestination(destination) {
@@ -60,6 +62,8 @@ function renderDestination(destination) {
   );
   // add captions to destination
   elDestination.appendChild(figcaption);
+
+  // events.subscribe("destinationAdded", addDestination);
 
   // Return the destination HTML
   return elDestination;

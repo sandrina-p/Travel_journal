@@ -66,13 +66,17 @@ button {
   height: 8rem;
 }
 
+#add-city-form {
+  display: block;
+  margin-top: 30vh;
+}
+
 .buttons {
   display: flex;
   justify-content: center;
   align-items: flex-end;
   padding-bottom: 30px;
   height: 5rem;
-  margin-top: 15rem;
 
   .buttons__view,
   .button {
