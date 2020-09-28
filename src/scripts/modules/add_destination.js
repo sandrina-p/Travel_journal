@@ -9,10 +9,6 @@ let radioBucketlist;
 let cityInput;
 let countryInput;
 let photoInput;
-let newCity;
-let newCountry;
-let newPhoto;
-// let updatedList
 
 function cacheDom() {
   form = document.getElementById("add-city-form");
@@ -27,53 +23,50 @@ function cacheDom() {
 
 function bindEvents() {
   form.addEventListener("submit", (event) => {
-    setValues();
     addDestination();
     event.preventDefault();
-    const itemIndex = destinationsList.length;
+    //get the index of the destination pushed to the destinationsList
+    const itemIndex = destinationsList.length - 1;
     events.publish("destinationAdded", itemIndex);
     console.log(destinationsList);
   });
 
   radioVisited.addEventListener("click", isVisited);
   radioBucketlist.addEventListener("click", isBucketlist);
+  // update the city
   cityInput.addEventListener("change", (event) => {
-    updateCity("city", event.target.value);
+    updateFormState("city", event.target.value);
   });
+  // ...the country
   countryInput.addEventListener("change", (event) => {
-    updateCountry("country", event.target.value);
+    updateFormState("country", event.target.value);
   });
+  //..and the photo of the new list item
   photoInput.addEventListener("change", (event) => {
-    updatePhoto("photo", event.target.value);
+    updateFormState("photo", event.target.value);
   });
 }
 
-function setValues() {
-  return {
-    city: cityInput,
-    country: countryInput,
-    visited: "",
-    url: photoInput,
-  };
-}
+let formState = {
+  city: null,
+  country: null,
+  photo: null,
+};
 
 function addDestination() {
-  return destinationsList.push({
-    ...newCity,
-    ...newCountry,
-    ...newPhoto,
-  });
+  return destinationsList.push(formState);
 }
+
+function updateFormState(fieldName, value) {
+  formState[fieldName] = value;
+}
+
 function isVisited() {
-  if (radioVisited.checked === true) {
-    newCity.visited = true;
-  }
+  updateFormState("visited", true);
 }
 
 function isBucketlist() {
-  if (radioBucketlist.checked === true) {
-    newCity.visited = false;
-  }
+  updateFormState("visited", false);
 }
 
 function initRadioBtn() {
@@ -81,30 +74,6 @@ function initRadioBtn() {
     isVisited();
     isBucketlist();
   });
-}
-
-function updateCountry(fieldName, value) {
-  console.log("updateCountry:", fieldName, value);
-  newCountry = {
-    ...newCountry,
-    [fieldName]: value,
-  };
-}
-
-function updateCity(fieldName, value) {
-  console.log("updateCity:", fieldName, value);
-  newCity = {
-    ...newCity,
-    [fieldName]: value,
-  };
-}
-
-function updatePhoto(fieldName, value) {
-  console.log("updatePhoto:", fieldName, value);
-  newPhoto = {
-    ...newPhoto,
-    [fieldName]: value,
-  };
 }
 
 function init() {
