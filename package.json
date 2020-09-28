@@ -19,9 +19,7 @@
   },
   "homepage": "https://github.com/majac91/Travel_journal#readme",
   "dependencies": {
-    "moment": "^2.27.0",
-    "scripts": "^0.1.0",
-    "src": "^1.1.2"
+    "moment": "^2.27.0"
   },
   "devDependencies": {
     "sass": "^1.26.10"

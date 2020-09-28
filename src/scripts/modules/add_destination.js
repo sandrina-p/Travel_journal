@@ -30,23 +30,10 @@ function bindEvents() {
     setValues();
     addDestination();
     event.preventDefault();
+    const itemIndex = destinationsList.length;
+    events.publish("destinationAdded", itemIndex);
     console.log(destinationsList);
   });
-
-  // events.publish('destinationAdded', (form.addEventListener("submit", (event) => {
-  //   setValues();
-  //   addDestination();
-  //   event.preventDefault();
-  //   console.log(destinationsList);
-  // })));
-
-  // updatedList = form.addEventListener("submit", (event) => {
-  //   setValues();
-  //   addDestination();
-  //   event.preventDefault();
-  //   console.log(destinationsList);
-  //   events.publish('destinationAdded', updatedList)
-  // });
 
   radioVisited.addEventListener("click", isVisited);
   radioBucketlist.addEventListener("click", isBucketlist);

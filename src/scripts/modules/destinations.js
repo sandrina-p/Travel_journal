@@ -27,7 +27,10 @@ function bindEvents() {
   document.addEventListener("DOMContentLoaded", setActive);
   document.addEventListener("scroll", shrinkNav);
   window.addEventListener("scroll", restoreNav);
-  events.subscribe("destinationAdded", renderDestination);
+  events.subscribe("destinationAdded", (itemIndex) => {
+    const elDestination = renderDestination(destinationsList[itemIndex]);
+    gallery.appendChild(elDestination);
+  });
 }
 
 function renderDestination(destination) {
