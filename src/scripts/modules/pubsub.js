@@ -1,6 +1,5 @@
 const events = (function () {
   const events = {};
-  console.log(events);
 
   function subscribe(eventName, fn) {
     events[eventName] = events[eventName] || [];

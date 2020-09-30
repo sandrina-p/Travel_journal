@@ -31,6 +31,10 @@ function bindEvents() {
     const elDestination = renderDestination(destinationsList[itemIndex]);
     gallery.appendChild(elDestination);
   });
+  events.subscribe("loadAdded", (getNew) => {
+    const storedDestination = renderDestination(destinationsList[getNew]);
+    gallery.appendChild(storedDestination);
+  });
 }
 
 function renderDestination(destination) {
