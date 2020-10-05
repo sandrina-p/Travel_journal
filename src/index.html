@@ -8,7 +8,7 @@
       rel="stylesheet"
       type="text/css"
     />
-    <link rel="stylesheet" href="css/style.scss" />
+    <link rel="stylesheet" href="./css/style.scss" />
     <link
       rel="stylesheet"
       media="screen"
@@ -22,6 +22,37 @@
       <h1 class="navbar__title">places been</h1>
       <h2 class="navbar__subtitle">a travel journal</h2>
     </nav>
+    <br />
+
+    <form id="add-city-form" class="container">
+      <p id="cityName">City</p>
+      <input type="text" name="text" id="inputCity" />
+      <p id="countryName">Country</p>
+      <input type="text" name="text" id="inputCountry" />
+      <!-- add photo field-->
+      <input type="url" id="inputImg" />
+      <!-- radio buttons-->
+      <div class="radio-buttons">
+        <input
+          id="rd-visited"
+          type="radio"
+          name="btn"
+          value="Visited"
+          label="Visited"
+        />
+        <label for="Visited">Visited</label>
+        <input
+          id="rd-bucketlist"
+          type="radio"
+          name="btn"
+          value="Bucketlist"
+          label="Bucketlist"
+        />
+        <label for="Bucketlist">Bucketlist</label>
+      </div>
+      <!-- Upload button -->
+      <button type="submit" id="upload">Upload</button>
+    </form>
 
     <main class="gallery container">
       <div class="buttons container">
