@@ -8,7 +8,6 @@ let radioBucketlist;
 let cityInput;
 let countryInput;
 let photoInput;
-let storedCity;
 //new list item state before the item is added
 let formState = {
   city: null,
@@ -33,10 +32,10 @@ function bindEvents() {
     //get the index of the destination pushed to the destinationsList and publish it
     const itemIndex = destinationsList.length - 1;
     events.publish("destinationAdded", itemIndex);
-    // storeNew();
+    storeNew();
     form.reset();
   });
-  // document.addEventListener("DOMContentLoaded", loadNew);
+  document.addEventListener("DOMContentLoaded", loadNew);
   radioVisited.addEventListener("click", isVisited);
   radioBucketlist.addEventListener("click", isBucketlist);
   cityInput.addEventListener("change", (event) => {
@@ -55,24 +54,22 @@ function updateFormState(fieldName, value) {
   formState[fieldName] = value;
 }
 
-// function storeNew() {
-//   storedCity = localStorage.setItem(
-//     "newDestination",
-//     JSON.stringify(formState)
-//   );
-// }
+function storeNew() {
+  localStorage.setItem("newDestination", JSON.stringify(formState));
+}
 
 // localStorage.clear();
 
-// function loadNew() {
-//   let isStored = localStorage.getItem("newDestination");
-//   if (isStored) {
-//     let data = JSON.parse(isStored);
-//   } else {
-//     data = [];
-//   }
-//   localStorage.setItem("newDestination", data);
-// }
+function loadNew() {
+  let isStored = localStorage.getItem("newDestination");
+  let data;
+  if (isStored) {
+    data = JSON.parse(isStored);
+  } else {
+    data = [];
+  }
+  localStorage.setItem("newDestination", data);
+}
 
 //push new list item to destinationList
 function addDestination() {
