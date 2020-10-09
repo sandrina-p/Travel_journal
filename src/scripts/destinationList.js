@@ -1,9 +1,18 @@
+import events from "./modules/pubsub";
+
 export var moment = require("moment");
 
 var myDate = new Date();
 var dateFormating = moment(myDate).format("LL");
 
 console.log(dateFormating);
+
+// events.subscribe("sendToVisited", (destination) => {
+//   let index = destinationsList.indexOf(destination);
+//   destinationsList[index].visited = true;
+//   console.log(destinationsList[index]);
+//   return destinationsList;
+// });
 
 let destinationsList = [
   //Visited
@@ -241,4 +250,6 @@ let destinationsList = [
   },
 ];
 
+// destinationsList[0].visited = false;
+// console.log(destinationsList[0]);
 export default destinationsList;

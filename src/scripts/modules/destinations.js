@@ -31,10 +31,6 @@ function bindEvents() {
     const elDestination = renderDestination(destinationsList[itemIndex]);
     gallery.appendChild(elDestination);
   });
-  events.subscribe("loadAdded", (getNew) => {
-    const storedDestination = renderDestination(destinationsList[getNew]);
-    gallery.appendChild(storedDestination);
-  });
 }
 
 function renderDestination(destination) {
@@ -53,8 +49,28 @@ function renderDestination(destination) {
   const img = document.createElement("img");
   img.style.objectFit = "cover"; // TODO - Prefer adding a CSS class instead.
   img.src = destination.photo;
+  //create checkbox
+  const checkbox = document.createElement("input");
+  checkbox.type = "checkbox";
+
+  //move checked items to 'visited' list
+  checkbox.addEventListener("click", () => {
+    checkbox.parentElement.classList.add("visited");
+    checkbox.parentElement.classList.remove("bucketlist");
+    // events.publish("sendToVisited", destination);
+    destination.visited = true;
+    console.log(destination);
+  });
+
+  //check all visited destinations checkboxes
+  if (destination.visited === true) {
+    checkbox.setAttribute("checked", "checked");
+  }
+
   // add img to destination
   elDestination.appendChild(img);
+  //add checkbox
+  elDestination.appendChild(checkbox);
 
   //set img captions
   const figcaption = document.createElement("figcaption");
@@ -69,9 +85,6 @@ function renderDestination(destination) {
   );
   // add captions to destination
   elDestination.appendChild(figcaption);
-
-  // events.subscribe("destinationAdded", addDestination);
-
   // Return the destination HTML
   return elDestination;
 }
