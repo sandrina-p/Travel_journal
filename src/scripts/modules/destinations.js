@@ -57,7 +57,6 @@ function renderDestination(destination) {
   checkbox.addEventListener("click", () => {
     checkbox.parentElement.classList.add("visited");
     checkbox.parentElement.classList.remove("bucketlist");
-    // events.publish("sendToVisited", destination);
     destination.visited = true;
     console.log(destination);
   });
