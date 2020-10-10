@@ -27,13 +27,10 @@ function bindEvents() {
   document.addEventListener("DOMContentLoaded", setActive);
   document.addEventListener("scroll", shrinkNav);
   window.addEventListener("scroll", restoreNav);
-  events.subscribe("destinationAdded", (itemIndex) => {
-    const elDestination = renderDestination(destinationsList[itemIndex]);
+
+  events.subscribe("destinationAdded", (newItem) => {
+    const elDestination = renderDestination(newItem);
     gallery.appendChild(elDestination);
-  });
-  events.subscribe("loadAdded", (getNew) => {
-    const storedDestination = renderDestination(destinationsList[getNew]);
-    gallery.appendChild(storedDestination);
   });
 }
 
@@ -58,6 +55,7 @@ function renderDestination(destination) {
 
   //set img captions
   const figcaption = document.createElement("figcaption");
+  figcaption.setAttribute("data-id", `${destination.id}-${destination.city}`);
   figcaption.classList.add("caption");
   figcaption.insertAdjacentHTML(
     "beforeend",

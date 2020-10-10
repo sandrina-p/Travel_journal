@@ -1,4 +1,4 @@
-import destinationsList from "../destinationList.js";
+import destinationsList, { addDestination } from "../destinationList.js";
 import events from "./pubsub.js";
 
 let form;
@@ -10,6 +10,7 @@ let countryInput;
 let photoInput;
 //new list item state before the item is added
 let formState = {
+  id: Math.round(Math.random() * 100000),
   city: null,
   country: null,
   photo: null,
@@ -27,15 +28,12 @@ function cacheDom() {
 
 function bindEvents() {
   form.addEventListener("submit", (event) => {
-    addDestination();
+    addDestination(formState);
     event.preventDefault();
-    //get the index of the destination pushed to the destinationsList and publish it
-    const itemIndex = destinationsList.length - 1;
-    events.publish("destinationAdded", itemIndex);
     storeNew();
     form.reset();
   });
-  document.addEventListener("DOMContentLoaded", loadNew);
+  // document.addEventListener("DOMContentLoaded", loadNew);
   radioVisited.addEventListener("click", isVisited);
   radioBucketlist.addEventListener("click", isBucketlist);
   cityInput.addEventListener("change", (event) => {
@@ -60,21 +58,16 @@ function storeNew() {
 
 // localStorage.clear();
 
-function loadNew() {
-  let isStored = localStorage.getItem("newDestination");
-  let data;
-  if (isStored) {
-    data = JSON.parse(isStored);
-  } else {
-    data = [];
-  }
-  localStorage.setItem("newDestination", data);
-}
-
-//push new list item to destinationList
-function addDestination() {
-  return destinationsList.push(formState);
-}
+// function loadNew() {
+//   let isStored = localStorage.getItem("newDestination");
+//   let data;
+//   if (isStored) {
+//     data = JSON.parse(isStored);
+//   } else {
+//     data = [];
+//   }
+//   localStorage.setItem("newDestination", data);
+// }
 
 function isVisited() {
   updateFormState("visited", true);
